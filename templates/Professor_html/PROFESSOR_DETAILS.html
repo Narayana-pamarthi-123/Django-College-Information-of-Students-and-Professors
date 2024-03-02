@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <title>Professors Details page</title>
+    <link rel="icon" href="{%static 'images/logo.jpg'%}" type="image/icon type">
+    <style type="text/css">
+        body{
+          background-image: url("{%static 'images/body5.jpg'%}");
+           background-repeat: no-repeat;
+       background-size: cover;
+}
+        .change{
+   color:white;
+   text-align:center;
+  background-image: url("{%static 'images/head7.jpg'%}");
+   padding:10px;
+   margin:5px;
+   border-radius:5px;
+
+}
+
+button{
+    color:white;
+    background-color:maroon;
+    width:8%;
+    cursor:pointer;
+
+}
+button:hover{
+    color:white;
+    background-color:green;
+}
+
+
+  .text-center{
+       text-align:center;
+}
+table, th, td {
+border: 1px solid black;
+margin-left: auto;
+margin-right: auto;
+border-collapse: collapse;
+width: 500px;
+text-align: center;
+font-size: 20px;
+background-color:silver;
+  border-collapse: separate;
+
+}
+th{
+ background-color:black;
+ color:white;
+
+
+}
+
+table.table table-dark table-striped {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+    </style>
+
+</head>
+<body>
+<header>
+    <div class="change">
+    <h1>Professor Details</h1>
+        <a href="/"><button type="button" name="button">Home</button></a>
+    </div>
+
+</header>
+
+<div class="container">
+  <h2 class="text-center"><u>Professors Table</u></h2>
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>S.no</th>
+        <th>Code</th>
+        <th>Professor_name</th>
+        <th>Subject_name</th>
+        <th>Age</th>
+          <th>Contact</th>
+        <th>Delete_Student</th>
+        <th>Update_Details</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- jinja2 Technique -->
+    {% if results%}
+    {% for i in results %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.Code}}</td>
+        <td>{{i.Professor_name}}</td>
+        <td>{{i.Subject_name}}</td>
+        <td>{{i.Age}}</td>
+          <td>{{i.Contact}}</td>
+        <td><a href="/pro/delete/{{i.id}}">Delete</a></td>
+        <td><a href="/pro/update/{{i.id}}">update</a></td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+
+
+
+
